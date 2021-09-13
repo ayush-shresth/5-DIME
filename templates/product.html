@@ -18,9 +18,6 @@
           <article class="content-body">
             <h2 class="title">{{single_product.product_name}}</h2>
 
-            <div class="mb-3">
-              <var class="price h4">RS {{single_product.price}} only</var>
-            </div>
 
             <p>{{single_product.description}}</p>
 
@@ -70,12 +67,19 @@
                 </div>
               </div>
             </div>
+            <div class="mb-3">
+              <var class="price h4">RS {{single_product.price}} only</var>
+            </div>
             <!-- row.// -->
             <hr />
-            <a href="./product-detail.html" class="btn btn-primary">
-              <span class="text">Add to cart</span>
+            {% if single_product.stock <= 0 %}
+            <h2 class="text-center"><b> Out Of Stock </b></h2>
+            {% else %}
+            <a href="{% url 'add_cart' single_product.id %}" class="btn btn-primary">
+              <span class="text">&nbsp;Add to cart&nbsp;</span>
               <i class="fas fa-shopping-cart"></i>
             </a>
+            {% endif %}
           </article>
           <!-- product-info-aside .// -->
         </main>

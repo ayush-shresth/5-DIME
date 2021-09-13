@@ -3,7 +3,7 @@
 <!-- -------------------------------HEADER-------------------------- -->
 
 <header class="section-header">
-<nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
+{% comment %} <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
 <div class="container-fluid">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@
 	</ul> <!-- list-inline //  -->
   </div> <!-- navbar-collapse .// -->
 </div> <!-- container //  -->
-</nav>
+</nav> {% endcomment %}
 
 <section class="header-main border-bottom">
 	<div class="container-fluid">
@@ -32,25 +32,28 @@
 	<div class="col-lg-2 col-md-3 col-6">
 		<a href="/" class="brand-wrap">
 			<img class="logo" src="{% static './images/logo.png' %}">
-		</a> <!-- brand-wrap.//     -->
+		</a> <!-- brand//     -->
 	</div>
     
 
 	<div class="col-lg col-sm col-md col-6 flex-grow-0">
 		<div class="category-wrap dropdown d-inline-block float-right">
 			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
-				<i class="fa fa-bars"></i> All category 
+				<i class="fa fa-bars"></i> &nbsp; &nbsp; Categories 
 			</button>
 			
 			<div class="dropdown-menu">
+			
+                   <a class="dropdown-item" href="{% url 'store' %}"><b>All Products</b></a>
+                 
 			{% for category in links %}
 				<a class="dropdown-item" href="{{category.get_url}}"> {{category.categories_name}} </a>
 			{% endfor %}
 			</div>
 			
-		</div>  <!-- category-wrap.// -->
+		</div>  <!-- category// -->
 	</div> <!-- col.// -->
-	<a href="store/" class="btn btn-outline-primary">Store</a>
+	<a href="/store/" class="btn btn-outline-primary">Store</a>
 	<div class="col-lg  col-md-6 col-sm-12 col">
 		<form action="#" class="search">
 			<div class="input-group w-100">
@@ -73,7 +76,7 @@
 							<a href="./register.html"> Register</a>
 						</div>
 					</div>
-					<a href="./cart.html" class="widget-header pl-3 ml-3">
+					<a href="/cart" class="widget-header pl-3 ml-3">
 						<div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
 						<span class="badge badge-pill badge-danger notify">0</span>
 					</a>
