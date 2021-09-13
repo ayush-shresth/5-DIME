@@ -8,7 +8,7 @@
         <aside class="col-md-6">
           <article class="gallery-wrap">
             <div class="img-big-wrap">
-              <a href="#"><img src="{{single_product.image.url}}" /></a>
+              <a href="#"><img src="{{products.image.url}}" /></a>
             </div>
             <!-- img-big-wrap.// -->
           </article>
@@ -16,10 +16,10 @@
         </aside>
         <main class="col-md-6 border-left">
           <article class="content-body">
-            <h2 class="title">{{single_product.product_name}}</h2>
+            <h2 class="title">{{products.product_name}}</h2>
 
 
-            <p>{{single_product.description}}</p>
+            <p>{{products.description}}</p>
 
             <hr />
             <div class="row">
@@ -68,18 +68,18 @@
               </div>
             </div>
             <div class="mb-3">
-              <var class="price h4">RS. {{single_product.price}} only</var>
+              <var class="price h4">RS. {{products.price}} only</var>
             </div>
             <!-- row.// -->
             <hr />
-            {% if single_product.stock <= 0 %}
+            {% if products.stock <= 0 %}
             <h2 class="text-center"><b> Out Of Stock </b></h2>
             {% else %}
-            <a href="" class="btn btn-primary">
+            {% comment %} <a href="{% url 'add_cart' single_product.id %}" class="btn btn-primary"> {% endcomment %}
               <span class="text">&nbsp;Add to cart&nbsp;</span>
               <i class="fas fa-shopping-cart"></i>
             </a>
-            {% comment %} {% url 'add_cart' single_product.id %} {% endcomment %}
+            
             {% endif %}
           </article>
           <!-- product-info-aside .// -->
@@ -102,7 +102,7 @@
         <article class="box mb-3">
           <div class="icontext w-100">
             <img
-              src="{% static '/images/avatars/avatar1.jpg' %}"
+              src="./images/avatars/avatar1.jpg"
               class="img-xs icon rounded-circle"
             />
             <div class="text">

@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Ayush Shtesth\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+    "python.pythonPath": "C:\\Users\\Ayush Shtesth\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "cmake.configureOnOpen": true
 }
