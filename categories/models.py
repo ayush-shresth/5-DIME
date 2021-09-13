@@ -19,5 +19,5 @@ class Categories(models.Model):
         return(reverse('product_by_categories', args=[self.slug] ))
     
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.categories_name
