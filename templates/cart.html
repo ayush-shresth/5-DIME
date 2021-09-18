@@ -19,13 +19,15 @@
 </tr>
 </thead>
 <tbody>
+
+{% for item in cart_items %}
 <tr>
 	<td>
 		<figure class="itemside align-items-center">
-			<div class="aside"><img src="{% static '/images/items/11.jpg' %}" class="img-sm"></div>
+			<div class="aside"><img src="{{item.product_name.image.url}}" class="img-sm"></div>
 			<figcaption class="info">
-				<a href="#" class="title text-dark">Camera Canon EOS M50 Kit</a>
-				<p class="text-muted small">Matrix: 25 Mpx <br> Brand: Canon</p>
+				<a href="#" class="title text-dark">{{item.product_name.product_name}}</a>
+				{% comment %} <p class="text-muted small">Matrix: 25 Mpx <br> Brand: Canon</p> {% endcomment %}
 			</figcaption>
 		</figure>
 	</td>
@@ -34,26 +36,26 @@
 					<div class="col"> 
 						<div class="input-group input-spinner">
 							<div class="input-group-prepend">
-							<button class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </button>
+							<a herf="" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
 							</div>
-							<input type="text" class="form-control"  value="1">
+							<input type="text" class="form-control"  value="{{item.quantity}}">
 							<div class="input-group-append">
-							<button class="btn btn-light" type="button" id="button-minus"> <i class="fa fa-plus"></i> </button>
+							<a href="{% url 'add_cart' item.product_name.id %}" class="btn btn-light" type="button" id="button-minus"> <i class="fa fa-plus"></i> </a>
 							</div>
 						</div> <!-- input-group.// -->
 					</div> <!-- col.// -->
 	</td>
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">$1156.00</var> 
-			<small class="text-muted"> $315.20 each </small> 
+			<var class="price">RS.&nbsp;{{ item.total_cost }}</var> 
+			<small class="text-muted"> RS.&nbsp;{{item.product_name.price}} each </small> 
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
 	<a href="" class="btn btn-danger"> Remove</a>
 	</td>
 </tr>
-
+{% endfor %}
 
 </tbody>
 </table>
@@ -66,22 +68,22 @@
 		<div class="card-body">
 			<dl class="dlist-align">
 			  <dt>Total price:</dt>
-			  <dd class="text-right">$69.97</dd>
+			  <dd class="text-right">RS.{{total}}</dd>
 			</dl>
 			<dl class="dlist-align">
-			  <dt>Tax:</dt>
-			  <dd class="text-right"> $10.00</dd>
+			  <dt>GST(8%):</dt>
+			  <dd class="text-right">RS.{{tax}}</dd>
 			</dl>
 			<dl class="dlist-align">
-			  <dt>Total:</dt>
-			  <dd class="text-right text-dark b"><strong>$59.97</strong></dd>
+			  <dt><strong>Total:</strong></dt>
+			  <dd class="text-right text-dark b"><strong>RS.{{grand_total}}</strong></dd>
 			</dl>
 			<hr>
 			<p class="text-center mb-3">
 				<img src="{% static '/images/misc/payments.png' %}" height="26">
 			</p>
 			<a href="./place-order.html" class="btn btn-primary btn-block"> Checkout </a>
-			<a href="./store.html" class="btn btn-light btn-block">Continue Shopping</a>
+			<a href="/store/" class="btn btn-light btn-block">Continue Shopping</a>
 		</div> <!-- card-body.// -->
 		</div> <!-- card.// -->
 
