@@ -38,11 +38,17 @@
 		<div class="card card-product-grid">
 			<a href="{{product.get_url}}" class="img-wrap"> <img src=" {{product.image.url}} "> </a>
 			<figcaption class="info-wrap">
-				<a href="{{product.get_url}}" class="title"> {{product.product_name}} </a>
-				<div class="price mt-1"> RS.&nbsp;{{product.price}} </div> <!-- price-wrap.// -->
+				<a style="height:40px; overflow:hidden; display: inline-block;" href="{{product.get_url}}" class="title" > {{product.product_name}} </a>
+				
+				{% if product.stock <= 0 %}
+					<div class="price mt-1">RS.&nbsp;{{product.price}}&nbsp; <h5 style="display: inline">(out of stock)</h5></div>
+				{% else %}
+					<div class="price mt-1"> RS.&nbsp;{{product.price}}</div>
+				{% endif %}
+
 			</figcaption>
 		</div>
-	</div> <!-- col.// -->
+	</div> 
 {% endfor %}  
 
 </div><!-- container // -->

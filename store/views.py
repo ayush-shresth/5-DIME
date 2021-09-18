@@ -26,12 +26,12 @@ def store(request, categories_slug=None):
 
 
 # def store1(request, products_slug=None):
-#     product1 = None
+#     product_to_add = None
 #     product = None
 
 #     if (products_slug != None):
-#         product1 = get_object_or_404(Products, slug=products_slug)
-#         product = Products.objects.filter(product_name=product1, available=True)
+#         product_to_add = get_object_or_404(Products, slug=products_slug)
+#         product = Products.objects.filter(product_name=product_to_add, available=True)
 #         product_count = product.count()
 #     else:
 #         product = Products.objects.all().filter(available=True)

@@ -75,11 +75,11 @@
             {% if single_product.stock <= 0 %}
             <h2 class="text-center"><b> Out Of Stock </b></h2>
             {% else %}
-            <a href="" class="btn btn-primary">
+            <a href="{% url 'add_cart' single_product.id %}" class="btn btn-primary">
               <span class="text">&nbsp;Add to cart&nbsp;</span>
               <i class="fas fa-shopping-cart"></i>
             </a>
-            {% comment %} {% url 'add_cart' single_product.id %} {% endcomment %}
+            
             {% endif %}
           </article>
           <!-- product-info-aside .// -->
