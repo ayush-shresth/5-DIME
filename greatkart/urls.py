@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 from . import views
-from store import views as v
+from store import views as store_view
 from store import urls
 from cart import urls
+from account import urls
 
 from django.conf.urls.static import static
 
@@ -29,10 +30,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('store/',include('store.urls')),
     path('cart/',include('cart.urls')),
-    path('<slug:categories_slug>/', v.store, name="product_by_categories"),#####
+    path('<slug:categories_slug>/', store_view.store, name="product_by_categories"),
+    path('account/',include('account.urls')),
     # path('<slug:products_slug>/', v.store1, name="products_by_product"),
-    #  path('<slug:categories_slug>/<slug:store_slug>/',
-    #      views.h,
-    #      name="product_detail"),
+    #  path('<slug:categories_slug>/<slug:store_slug>/',views.h,name="product_detail"),
     
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
