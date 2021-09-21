@@ -14,7 +14,7 @@ class Cart(models.Model):
 class CartItem(models.Model):
     product_name = models.ForeignKey(Products, on_delete=models.CASCADE)
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    quantity=models.IntegerField(max_length=100)
+    quantity=models.IntegerField()
     is_available=models.BooleanField(default=True)
 
     def __str__(self):

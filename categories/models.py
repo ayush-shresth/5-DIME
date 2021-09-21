@@ -4,6 +4,7 @@ from django.urls import reverse
 # Create your models here.
 
 class Categories(models.Model):
+    # id = models.AutoField(primary_key=True, unique=True,default=, blank=False)
     categories_name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
     categories_desc = models.TextField(max_length=300, blank=True)

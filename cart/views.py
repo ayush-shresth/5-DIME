@@ -51,9 +51,33 @@ def add_cart(request, product_id):
     return redirect(cart)
 
 
+def get_cartItem(request, product_id):
+    cartid = Cart.objects.get(cart_id=_cart_id(request))
+    product = CartItem.objects.get(cart=cartid, product_name_id=product_id)
+    return product
+
+
+def decrement_item(request, product_id):
+    cart_item = get_cartItem(request, product_id)
+    # cart = Cart.objects.get(cart_id=_cart_id(request))
+    # cart_item = CartItem.objects.get(product_name=product, cart=cart)
+    if cart_item.quantity > 1:
+        cart_item.quantity -= 1
+        cart_item.save()
+    else:
+        cart_item.delete()
+    return redirect(cart)
+
+
+def remove_cart_item(request, product_id):
+    cart_item = get_cartItem(request, product_id)
+    cart_item.delete()
+    return redirect(cart)
+
+
 def cart(request, total=0, quantity=0, cart_items=None):
     try:
-        cart_data = Cart.objects.get(cart_id =_cart_id(request))
+        cart_data = Cart.objects.get(cart_id=_cart_id(request))
         cart_items = CartItem.objects.filter(cart=cart_data, is_available=True)
         # pro=Products.objects.filter(product_name=cart_items)
         # for i in pro:
@@ -64,12 +88,12 @@ def cart(request, total=0, quantity=0, cart_items=None):
 
     except ObjectDoesNotExist:
         pass
-    tax=(total*8)/100
-    grand_total=tax+total
+    tax = (total*8)/100
+    grand_total = tax+total
     param = {"total": total,
              "quantity": quantity,
              "cart_items": cart_items,
-             "tax":tax,
-             "grand_total":grand_total,
+             "tax": tax,
+             "grand_total": grand_total,
              }
     return render(request, 'cart.html', param)

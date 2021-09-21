@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, render
 # from django.urls import Exception
 from store.models import Products
@@ -59,3 +60,18 @@ def product_detail(request, categories_slug, product_slug):
 
 # def store(request):
 #     return render(request,'store.html')
+
+
+def search(request):
+    if 'keyword' in request.GET:
+        keyword=request.GET["keyword"]
+        # prod=Products.objects.filter(description__icontains=keyword)
+        prod=Products.objects.filter(product_name__icontains=keyword)
+        count=prod.count()
+    param={
+        'products':prod,
+        'count':count
+    }
+    return render(request, 'store.html', param)
+        
+        

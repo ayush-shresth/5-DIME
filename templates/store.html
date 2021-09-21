@@ -7,6 +7,7 @@
   </div>
 </section>
 <!-- container //  -->
+
 <!-- ========================= SECTION INTRO END// ========================= -->
 
 <!-- ========================= SECTION CONTENT ========================= -->
@@ -140,6 +141,7 @@
         <!-- card.// -->
       </aside>
       <!-- col.// -->
+      {% if count %}
       <main class="col-md-9">
         <header class="border-bottom mb-4 pb-3">
           <div class="form-inline">
@@ -169,7 +171,16 @@
                   </div>
                   <!-- price-wrap.// -->
                 </div>
-                <a href="#" class="btn btn-block btn-primary">Add to cart </a>
+
+                {% if product.stock %}
+                <a
+                  href="{% url 'add_cart' product.id %}"
+                  class="btn btn-block btn-primary"
+                  >Add to cart
+                </a>
+                {% else %}
+                <div class="text-center">Out Of Stock</div>
+                {% endif %}
               </figcaption>
             </figure>
           </div>
@@ -191,6 +202,15 @@
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
           </ul>
         </nav>
+        {% else %}
+        <section class="section-pagetop bg">
+          <div class="container">
+            <h2 class="title-page" style="text-align: center">
+              Search Not Found
+            </h2>
+          </div>
+        </section>
+        {% endif %}
       </main>
       <!-- col.// -->
     </div>

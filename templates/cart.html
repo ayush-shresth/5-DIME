@@ -5,7 +5,12 @@
 <div class="container">
 
 <!-- ============================ COMPONENT 1 ================================= -->
-
+{% if not cart_items %}
+	<div class="text-center">
+	<h2> Your Shopping Cart Is Empty</h2>
+	<a href="{% url 'store' %}" class="btn btn-primary"> Continue shopping</a>
+	</div>
+{% else %}
 <div class="row">
 	<aside class="col-lg-9">
 <div class="card">
@@ -26,7 +31,7 @@
 		<figure class="itemside align-items-center">
 			<div class="aside"><img src="{{item.product_name.image.url}}" class="img-sm"></div>
 			<figcaption class="info">
-				<a href="#" class="title text-dark">{{item.product_name.product_name}}</a>
+				<a href="{{ item.product_name.get_url }}" class="title text-dark">{{item.product_name.product_name}}</a>
 				{% comment %} <p class="text-muted small">Matrix: 25 Mpx <br> Brand: Canon</p> {% endcomment %}
 			</figcaption>
 		</figure>
@@ -36,7 +41,7 @@
 					<div class="col"> 
 						<div class="input-group input-spinner">
 							<div class="input-group-prepend">
-							<a herf="" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
+							<a herf="{% url 'decrement_item' item.product_name.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
 							</div>
 							<input type="text" class="form-control"  value="{{item.quantity}}">
 							<div class="input-group-append">
@@ -52,7 +57,7 @@
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-	<a href="" class="btn btn-danger"> Remove</a>
+	<a href = "{% url 'remove_cart_item' item.product_name.id %}" class="btn btn-danger"> Remove</a>
 	</td>
 </tr>
 {% endfor %}
@@ -91,6 +96,8 @@
 
 
 </div> <!-- row.// -->
+
+{% endif %}
 <!-- ============================ COMPONENT 1 END .// ================================= -->
 
 </div> <!-- container .//  -->
