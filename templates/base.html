@@ -58,26 +58,28 @@
       /// some script
 
       // jquery ready start
-      $(document).ready(function() {
-      	// jQuery code
-
-
-      // jquery end
+      $(document).ready(function () {
+        // jQuery code
+        // jquery end
       });
     </script>
   </head>
   <body>
     <div class="container-fluid">
-      {% comment %}=================BODY BLOCK===================== {% endcomment %} 
-	  
-	  {% comment %}==============included navigationbar============={% endcomment %} 
-	  
-	  
-	  {% include 'include/navbar.html' %} 
-	  
-	  
-	  {%block content %}{% endblock content %} 
-	  {% comment %} ===================included footer=================={% endcomment %} 
+      {% comment %}=================BODY BLOCK===================== {%
+      endcomment %} {% comment %}==============included
+      navigationbar============={% endcomment %} 
+      
+      
+      {% include 'include/navbar.html' %}
+      <style>
+        #hover_effect:hover {
+          opacity: 0.75;
+        }
+      </style>
+
+      {%block content %}{% endblock content %} {% comment %}
+      ===================included footer=================={% endcomment %}
       {%include 'include/footer.html' %}
     </div>
   </body>

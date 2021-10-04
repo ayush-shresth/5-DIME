@@ -14,7 +14,6 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     list_editable = ('available', 'stock', 'price',)
-
     prepopulated_fields = {'slug': ('product_name',)}
 
 

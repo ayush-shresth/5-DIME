@@ -1,10 +1,26 @@
 {% extends 'base.html' %} {% block content %}
 <!-- ========================= SECTION CONTENT ========================= -->
+{% comment %}
 <section class="section-content padding-y">
+  {% endcomment %}
   <!-- ============================ COMPONENT REGISTER   ================================= -->
-  <div class="card mx-auto" style="max-width: 520px; margin-top: 40px">
+  <div class="card mx-auto" style="max-width: 520px; margin-top: 30px">
     <article class="card-body">
       <header class="mb-4"><h4 class="card-title">Sign up</h4></header>
+      <span id="message">
+      {% if flag %}
+      <div class="alert alert-success my-2 py-2 text-center"  role="alert">
+        <a
+          href="{% url 'login_account' %}"
+          class="text-decoration-none text-success"
+        >
+          <b>Registration successfull!!! &nbsp; LogIn to Continue</b>
+        </a>
+      </div>
+      <br />
+      {% endif %}
+      </span>
+
       <form action="{% url 'register_account' %}" method="POST">
         {% csrf_token %}
 
@@ -21,7 +37,7 @@
           <!-- form-group end.// -->
         </div>
         <!-- form-row end.// -->
-         <div class="form-row">
+        <div class="form-row">
           <div class="col form-group">
             <label>Email</label>
             {{form.email}}
@@ -34,8 +50,9 @@
           <!-- form-group end.// -->
         </div>
         <!-- form-group end.// -->
-       
+
         <!-- form-group end.// -->
+        
         {% comment %} <div class="form-row">
           <div class="form-group col-md-6">
             <label>City</label>
@@ -55,6 +72,7 @@
           </div>
           <!-- form-group end.// -->
         </div> {% endcomment %}
+      
         <!-- form-row.// -->
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -67,6 +85,14 @@
             {{form.confirm_password}}
           </div>
           <!-- form-group end.// -->
+          {% comment %} {{form.errors.email}} {{form.errors.phone_no}} {%
+          endcomment %}
+          <b>
+            {{form.errors.email}} {{form.errors.phone_no}}
+            {{form.errors.password}} {{form.errors.confirm_password}}
+          </b>
+          {% comment %} <b> {{form.error.first_name}} </b> {% endcomment %} 
+          
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block">
@@ -79,10 +105,15 @@
     <!-- card-body.// -->
   </div>
   <!-- card .// -->
-  <p class="text-center mt-4">Have an account? <a href="{% url 'login_account' %}">Log In</a></p>
-  <br /><br />
+  <p class="text-center mt-4">
+    Have an account? <a href="{% url 'login_account' %}">Log In</a>
+  </p>
+  <br />
+  <br />
   <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+  {% comment %}
 </section>
+{% endcomment %}
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
 {% endblock content %}
