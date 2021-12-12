@@ -460,6 +460,7 @@ p:last-child {
 }
 .widget-header .title {
   display: block;
+  font-weight: 500;
 }
 .widget-header .notify {
   position: absolute;

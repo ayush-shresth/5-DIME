@@ -7,7 +7,7 @@
   <div class="card mx-auto" style="max-width: 520px; margin-top: 30px">
     <article class="card-body">
       <header class="mb-4"><h4 class="card-title">Sign up</h4></header>
-      <span id="message">
+      <span>
       {% if flag %}
       <div class="alert alert-success my-2 py-2 text-center"  role="alert">
         <a
@@ -85,8 +85,7 @@
             {{form.confirm_password}}
           </div>
           <!-- form-group end.// -->
-          {% comment %} {{form.errors.email}} {{form.errors.phone_no}} {%
-          endcomment %}
+          {% comment %} {{form.errors.email}} {{form.errors.phone_no}} {% endcomment %}
           <b>
             {{form.errors.email}} {{form.errors.phone_no}}
             {{form.errors.password}} {{form.errors.confirm_password}}
@@ -117,3 +116,5 @@
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
 {% endblock content %}
+
+

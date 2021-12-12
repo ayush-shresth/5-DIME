@@ -35,7 +35,7 @@ class RegistrationForm(forms.ModelForm):
     }))
 
     class Meta:
-        model = User
+        model = Account
         fields = ['first_name', 'last_name', 'phone_no', 'email', 'password', ]
 
     

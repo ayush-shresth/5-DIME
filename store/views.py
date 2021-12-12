@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404, render
 # from django.urls import Exception
 from store.models import Products
 from categories.models import Categories
+from cart.models import CartItem
+from cart.views import _cart_id
 
 # Create your views here.
 
@@ -50,6 +52,7 @@ def product_detail(request, categories_slug, product_slug):
     try:
         single_product = Products.objects.get(categories__slug=categories_slug,
                                           slug=product_slug)
+       
         print("hello")
     except Exception as exceptions:
         raise exceptions

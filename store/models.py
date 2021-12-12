@@ -9,7 +9,7 @@ class Products(models.Model):
 
     product_name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    description = models.TextField(max_length=300, blank=True)
+    description = models.TextField(max_length=3000, blank=True)
     price = models.IntegerField()
     image = models.ImageField(upload_to="photos/product")
     stock = models.IntegerField()
@@ -23,7 +23,7 @@ class Products(models.Model):
         verbose_name_plural = "Products"
 
     def get_url(self):
-        return reverse("product_detail", args=[self.categories.slug, self.slug,])
+        return reverse("product_detail", args=[self.categories.slug, self.slug, ])
 
     def __str__(self):
         return self.product_name
