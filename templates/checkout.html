@@ -3,16 +3,22 @@
 <section class="section-content padding-y bg">
   <div class="container">
     <!-- ============================ COMPONENT 1 ================================= -->
-
     <div class="row">
       <aside class="col-lg-7">
-        <div class="card">
+        <div class="card shadow">
           <div class="card-body">
-            <h4 class="card-title mb-4">Billing Address</h4>
-            <form action="">
+            <div>
+              <h4 class="card-title mb-1" style="display: inline-block;">
+                   Billing Address &nbsp;
+              </h4>
+              <span>(Please provide billing address to order)</span>
+            </div>
+            <small class="text-muted">* Required field</small>
+            <form action="{% url 'place_order' %}" method="post">
+              {% csrf_token %}
               <div class="form-row">
                 <div class="col form-group">
-                  <label for="">First Name</label>
+                  <label>First Name*</label>
                   <input
                     type="text"
                     name="first_name"
@@ -21,7 +27,7 @@
                   />
                 </div>
                 <div class="col form-group">
-                  <label for="">Last Name</label>
+                  <label>Last Name*</label>
                   <input
                     type="text"
                     name="last_name"
@@ -32,7 +38,7 @@
               </div>
               <div class="form-row">
                 <div class="col form-group">
-                  <label for="">Email</label>
+                  <label>Email*</label>
                   <input
                     type="email"
                     name="email"
@@ -41,7 +47,7 @@
                   />
                 </div>
                 <div class="col form-group">
-                  <label for="">Phone Number</label>
+                  <label>Phone Number*</label>
                   <input
                     type="text"
                     name="phone_number"
@@ -52,7 +58,7 @@
               </div>
               <div class="form-row">
                 <div class="col form-group">
-                  <label for="">Address Line 1</label>
+                  <label for="">Address Line 1*</label>
                   <input
                     type="text"
                     name="address_line_1"
@@ -71,7 +77,7 @@
               </div>
               <div class="form-row">
                 <div class="col form-group">
-                  <label for="">City</label>
+                  <label for="">City*</label>
                   <input
                     type="text"
                     name="city"
@@ -80,7 +86,7 @@
                   />
                 </div>
                 <div class="col form-group">
-                  <label for="">State</label>
+                  <label for="">State*</label>
                   <input
                     type="text"
                     name="state"
@@ -89,7 +95,7 @@
                   />
                 </div>
                 <div class="col form-group">
-                  <label for="">Pin Code</label>
+                  <label for="">Pin Code*</label>
                   <input
                     type="text"
                     name="pin_code"
@@ -106,19 +112,20 @@
                       type="text"
                       name="order_note"
                       class="form-control"
-                      style="display: inline-block; width: 86.3%"
+                      style="display: inline-block; width: 86.3%;"
                   /></span>
                 </div>
               </div>
-            </form>
+            {% comment %} </form> {% endcomment %}
           </div>
         </div>
         <!-- card.// -->
       </aside>
+     
       <!-- col.// -->
       <aside class="col-lg-5">
         <table class="table table-borderless table-shopping-cart">
-          <thead class="text-muted">
+          <thead class="text-muted text-center">
             <tr class="small text-uppercase">
               <th scope="col">Product</th>
               <th scope="col">Quantity</th>
@@ -143,15 +150,9 @@
                   <figcaption class="info">
                     <a
                       href="{{ item.product_name.get_url }}"
-                      class="title text-dark"
-                      >{{item.product_name.product_name}}</a
-                    >
-                    {% comment %}
-                    <p class="text-muted small">
-                      Matrix: 25 Mpx <br />
-                      Brand: Canon
-                    </p>
-                    {% endcomment %}
+                      class="title text-dark">
+                      {{item.product_name.product_name}}
+                    </a>
                   </figcaption>
                 </figure>
               </td>
@@ -167,17 +168,19 @@
                         type="button"
                         id="button-plus"
                       >
+
                         <i class="fa fa-minus"></i>
+                      
                       </a>
                     </div>
                     {% endcomment %} {% comment %}
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control text-center"
                       value="{{item.quantity}}"
                     />
                     {% endcomment %}
-                    <label for="" class="mt-1 ml-2 pt-4 pl-4"
+                    <label for="" class="mt-1 ml-2 pt-4 pl-4 text-center"
                       >{{item.quantity}}</label
                     >
                     {% comment %}
@@ -249,9 +252,8 @@
               {% endcomment %}
             </p>
             <div id="paypal-button-container"></div>
-            <a href="./place-order.html" class="btn btn-primary btn-block">
-              Checkout
-            </a>
+            <button type="submit" class="btn btn-primary btn-block">place order</button>
+          </form>
             <a href="/store/" class="btn btn-light btn-block"
               >Continue Shopping</a
             >
@@ -269,7 +271,7 @@
   <!-- container .//  -->
 </section>
 
-<script>
+{% comment %} <script>
   // Render the PayPal button into #paypal-button-container
   paypal
     .Buttons({
@@ -321,7 +323,7 @@
       },
     })
     .render("#paypal-button-container");
-</script>
+</script> {% endcomment %}
 
 {% comment %}
 <script>

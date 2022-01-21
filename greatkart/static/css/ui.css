@@ -6,7 +6,9 @@ html {
   font-family: "Inter", sans-serif;
   font-size: 15px;
 }
-
+/* :root{
+  --primary: rgba(13, 71, 90, 0.959) !important;
+} */
 /* ========================
 INCLUDE STYLES AND COMPONENTS
 ===================== */
@@ -152,7 +154,7 @@ a:hover {
 
 .hover-zoom:hover {
   transition: 0.5s;
-  transform: scaleX(1);
+  transform: scaleX(2);
 }
 
 /* ============== spacing ============== */
@@ -256,7 +258,8 @@ article:after,
 }
 
 .bg-blue {
-  background-color: #3167eb;
+  /* background-color: #3167eb; */
+  background-color: #0c3cb6;
 }
 
 .bg-red {
@@ -295,6 +298,15 @@ article:after,
   /* Standard syntax */
   transition: 0.5s;
 }
+/* .btn-primary {
+  color: #fff !important;
+  background-color: rgba(13, 71, 90, 0.959) !important;
+  border-color: rgba(13, 71, 90, 0.959) !important;
+} */
+/* .btn-outline-primary {
+  color: rgba(13, 71, 90, 0.959) !important;
+  border-color: rgba(13, 71, 90, 0.959) !important;
+} */
 
 .bg-gradient-red {
   background: rgba(33, 37, 41, 0.4);
@@ -426,9 +438,13 @@ p:last-child {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
+/* .logo{
+  width: 100%;
+  padding-right: 200px;
+} */
 .brand-wrap .logo, .navbar-brand .logo {
   margin-right: 7px;
+  
   max-height: 42px;
   display: inline-block;
 }

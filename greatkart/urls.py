@@ -22,6 +22,7 @@ from store import views as store_view
 from store import urls
 from cart import urls
 from account import urls
+from orders import urls
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -32,6 +33,7 @@ urlpatterns = [
     path('<slug:categories_slug>/', store_view.store,
          name="product_by_categories"),
     path('account/', include('account.urls')),
+    path('orders/', include('orders.urls')),
     # path('<slug:products_slug>/', v.store1, name="products_by_product"),
     #  path('<slug:categories_slug>/<slug:store_slug>/',views.h,name="product_detail"),
 

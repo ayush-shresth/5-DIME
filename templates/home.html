@@ -8,9 +8,9 @@
 <section class="section-intro padding-y-sm">
 <div class="container-fluid">
 
-<div class="">
+<div class="shadow">
 	<a href="{% url 'store' %}">
-	<img src="{% static 'images/banners/cover6.jpg' %}" class="img-fluid rounded">
+	<img src="{% static 'images/banners/cover6.jpg' %}" class="img-fluid rounded shadow">
 </a>
 </div>
 
@@ -35,7 +35,8 @@
 <div class="row">
 {% for product in products %}
 	<div class="col-md-3">
-		<div class="card card-product-grid">
+		<div class="card card-product-grid shadow"  >
+
 			<a href="{{product.get_url}}" class="img-wrap" id="hover_effect"> <img src=" {{product.image.url}} "> </a>
 			<figcaption class="info-wrap">
 				<a style="height:40px; overflow:hidden; display: inline-block;" href="{{product.get_url}}" class="title" > {{product.product_name}} </a>

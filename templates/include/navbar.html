@@ -51,7 +51,8 @@
       <div class="row align-items-center">
         <div class="col-lg-2 col-md-3 col-6">
           <a href="/" class="brand-wrap">
-            <img class="logo" src="{% static './images/logo.png' %}" />
+            <img class="logo" src="{% static './images/logo12.png' %}" style="width:110%; padding: 0;
+            margin: 0;"/>
           </a>
           <!-- brand//     -->
         </div>
@@ -113,7 +114,7 @@
                 <a href="{% url 'login_account' %}">Log In</a>
                 <span class="dark-transp"> | </span>
                 <a href="{% url 'register_account' %}"> Register</a>
-                <div><a href={% url 'dashboard' %}> Dashboard</a></div>
+                {% comment %} <div><a href={% url 'dashboard' %}> Dashboard</a></div> {% endcomment %}
               </div>
             </div>
             <a href={% url 'carts' %} class="widget-header pl-3 ml-3">
