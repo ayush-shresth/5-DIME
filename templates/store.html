@@ -27,7 +27,6 @@
                   <li>
                     <b><a href="{% url 'store' %}">All Products</a></b>
                   </li>
-
                   {% for category in links %}
                   <li>
                     <a href="{{category.get_url}}"
@@ -35,102 +34,12 @@
                     </a>
                   </li>
                   {% endfor %}
-                  
                 </ul>
               </div>
-              <!-- card-body.// -->
             </div>
           </article>
-          <!-- filter-group  .// -->
-          {% comment %} <article class="filter-group">
-            <header class="card-header">
-              <a
-                href="#"
-                data-toggle="collapse"
-                data-target="#collapse_4"
-                aria-expanded="true"
-                class=""
-              >
-                <i class="icon-control fa fa-chevron-down"></i>
-                <h6 class="title">Sizes</h6>
-              </a>
-            </header>
-            <div class="filter-content collapse show" id="collapse_4">
-              <div class="card-body">
-                <label class="checkbox-btn">
-                  <input type="checkbox" />
-                  <span class="btn btn-light"> XS </span>
-                </label>
-
-                <label class="checkbox-btn">
-                  <input type="checkbox" />
-                  <span class="btn btn-light"> SM </span>
-                </label>
-
-                <label class="checkbox-btn">
-                  <input type="checkbox" />
-                  <span class="btn btn-light"> LG </span>
-                </label>
-
-                <label class="checkbox-btn">
-                  <input type="checkbox" />
-                  <span class="btn btn-light"> XXL </span>
-                </label>
-              </div>
-              <!-- card-body.// -->
-            </div>
-          </article> {% endcomment %}
-          <!-- filter-group .// -->
-
-          <article class="filter-group">
-            <header class="card-header">
-              <a
-                href="#"
-              >
-                <i class="icon-control fa fa-chevron-down"></i>
-                <h6 class="title">Price range</h6>
-              </a>
-            </header>
-            <div class="filter-content collapse show" id="collapse_3" style="">
-              <div class="card-body">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label>Min</label>
-                    <!-- <input class="form-control" placeholder="$0" type="number"> -->
-                    <select class="mr-2 form-control">
-                      <option value="0">Rs 0</option>
-                      <option value="50">Rs 500</option>
-                      <option value="100">Rs 1000</option>
-                      <option value="150">Rs 1500</option>
-                      <option value="200">Rs 2000</option>
-                      <option value="500">Rs 5000</option>
-                      <option value="1000">Rs 10000</option>
-                    </select>
-                  </div>
-                  <div class="form-group text-right col-md-6">
-                    <label>Max</label>
-                    <select class="mr-2 form-control">
-                      <option value="50">Rs 500</option>
-                      <option value="100">Rs 1000</option>
-                      <option value="150">Rs 1500</option>
-                      <option value="200">Rs 2000</option>
-                      <option value="500">Rs 5000</option>
-                      <option value="1000">Rs 10000</option>
-                      <option value="2000">Rs 20000+</option>
-                    </select>
-                  </div>
-                </div>
-                <!-- form-row.// -->
-                <button class="btn btn-block btn-primary">Apply</button>
-              </div>
-              <!-- card-body.// -->
-            </div>
-          </article>
-          <!-- filter-group .// -->
         </div>
-        <!-- card.// -->
       </aside>
-      <!-- col.// -->
       {% if count %}
       <main class="col-md-9">
         <header class="border-bottom mb-4 pb-3">
@@ -144,10 +53,10 @@
           {% for product in products %}
 
           <div class="col-md-4">
-            <figure class="card card-product-grid shadow">
+            <figure class="card card-product-grid shadow" id="hover_effect">
               <div class="img-wrap">
                 <a href="{{product.get_url}}">
-                  <img src="{{product.image.url}}" id="hover_effect"/>
+                  <img src="{{product.image.url}}" />
                 </a>
               </div>
               <!-- img-wrap.// -->
@@ -194,6 +103,4 @@
   </div>
   <!-- container .//  -->
 </section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
-
 {% endblock content %}

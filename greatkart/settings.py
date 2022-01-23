@@ -26,7 +26,7 @@ SECRET_KEY = ')(@5oiyz$7p+#b^g$aurk(-@=+8e7^yb^6@g5d*t&lj7-%1ni2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['five-and-dime.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','five-and-dime.herokuapp.com',]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 # Application definition

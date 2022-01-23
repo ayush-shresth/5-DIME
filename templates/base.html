@@ -54,10 +54,10 @@
     <!-- custom javascript -->
     <script src="{% static 'js/script.js' %}" type="text/javascript"></script>
 
-    <!--            paypal-script           -->
+    <!--========================paypal-script================================-->
     <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
 
-    <script type="text/javascript">   
+    <script type="text/javascript">
       /// some script
 
       // jquery ready start
@@ -69,15 +69,12 @@
   </head>
   <body>
     <div class="container-fluid">
-      {% comment %}=================BODY BLOCK===================== {%
-      endcomment %} {% comment %}==============included
-      navigationbar============={% endcomment %} 
-      
-      
       {% include 'include/navbar.html' %}
       <style>
         #hover_effect:hover {
-          opacity: 0.75;
+          transition: ease 0.4s;
+          transform: translateY(-5px);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         }
       </style>
 

@@ -130,9 +130,7 @@
               <th scope="col">Product</th>
               <th scope="col">Quantity</th>
               <th scope="col">Price</th>
-              {% comment %}
-              <th scope="col" class="text-right" width="200"></th>
-              {% endcomment %}
+              
             </tr>
           </thead>
           <tbody>
@@ -160,41 +158,11 @@
                 <!-- col.// -->
                 <div class="col">
                   <div class="input-group input-spinner">
-                    {% comment %}
-                    <div class="input-group-prepend">
-                      <a
-                        herf="{% url 'decrement_item' item.product_name.id %}"
-                        class="btn btn-light"
-                        type="button"
-                        id="button-plus"
-                      >
-
-                        <i class="fa fa-minus"></i>
-                      
-                      </a>
-                    </div>
-                    {% endcomment %} {% comment %}
-                    <input
-                      type="text"
-                      class="form-control text-center"
-                      value="{{item.quantity}}"
-                    />
-                    {% endcomment %}
+                   
                     <label for="" class="mt-1 ml-2 pt-4 pl-4 text-center"
                       >{{item.quantity}}</label
                     >
-                    {% comment %}
-                    <div class="input-group-append">
-                      <a
-                        href="{% url 'add_cart' item.product_name.id %}"
-                        class="btn btn-light"
-                        type="button"
-                        id="button-minus"
-                      >
-                        <i class="fa fa-plus"></i>
-                      </a>
-                    </div>
-                    {% endcomment %}
+                   
                   </div>
                   <!-- input-group.// -->
                 </div>
@@ -209,16 +177,7 @@
                 </div>
                 <!-- price-wrap .// -->
               </td>
-              {% comment %}
-              <td class="text-right">
-                <a
-                  href="{% url 'remove_cart_item' item.product_name.id %}"
-                  class="btn btn-danger"
-                >
-                  Remove</a
-                >
-              </td>
-              {% endcomment %}
+             
             </tr>
             {% endfor %}
           </tbody>
@@ -247,9 +206,7 @@
             </dl>
             <hr />
             <p class="text-center mb-3">
-              {% comment %}
-              <img src="{% static '/images/misc/payments.png' %}" height="26" />
-              {% endcomment %}
+             
             </p>
             <div id="paypal-button-container"></div>
             <button type="submit" class="btn btn-primary btn-block">place order</button>
@@ -264,11 +221,9 @@
       </aside>
       <!-- col.// -->
     </div>
-    <!-- row.// -->
 
     <!-- ============================ COMPONENT 1 END .// ================================= -->
   </div>
-  <!-- container .//  -->
 </section>
 
 {% comment %} <script>

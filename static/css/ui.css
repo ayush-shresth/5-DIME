@@ -8,8 +8,10 @@ html {
   font-size: 15px;
 }
 
-.shadow {
- 
+.d {
+  transition: ease .4s;
+  transform: translateY(-5);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
 }
 
 /* ================== HELPERS  =================== */
